@@ -1,0 +1,17 @@
+name: Latest Posts
+
+on:
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    name: Update README with latest posts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: gautamkrishnar/blog-post-workflow@master
+        with:
+          commit_message: Updated README with the latest posts.
+          committer_username: GitHub
+          committer_email: noreply@github.com
+          feed_list: https://dvuckovic.com/rss.xml
